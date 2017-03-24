@@ -7,7 +7,43 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>
+<div class="container">
+	<div class="row">
+		<header id="pageTitle" class="jumbotron text-center">THIS IS THE SEARCH YOU'RE LOOKING FOR!
+		</header>
+	</div>
 
+	<div class="row">
+		<section id="searchBox" class="panel panel-primary">
+			<div class="panel-heading ourHeadings">Search Area</div>
+			
+			<div class="panel-body">
+				<h4>SEARCH</h4>
+				<input type="text" class="form-control">
+				<h4>NUMBER OF RECORDS TO RETRIEVE</h4>
+				<input type="text" class="form-control">
+				<h4>START YEAR</h4>
+				<input type="text" class="form-control">
+				<h4>END YEAR</h4>
+				<input type="text" class="form-control">
+			
+				<button id="searchButton" class="btn btn-primary display-inline margin-top">SEARCH</button>
+				<button id="clearButton" class="btn btn-primary display-inline">CLEAR RESULTS</button>
+			
+			</div>
+		</section>
+
+		<section id="topResultsBox" class="panel panel-primary">
+			<div class="panel-heading ourHeadings">TOP RESULTS</div>
+			
+			<div id="resultsList" class="panel-body">
+				
+			
+			</div>
+		</section>
+	</div>
+
+</div>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
  <script src="assets/javascript/app.js"></script>
