@@ -17,18 +17,24 @@ function search(){
   		url: url,
   		method: 'GET',
 	}).done(function(result) {
-		$("#input").html(result);
+		
 
 		var newDiv = $("<div>");
+		console.log(result);
+		for(i=0;i<10;i++){
 
-		for(i=0;i<5;i++){
+
 		newDiv.append("<h2>" + result.response.docs[i].headline.main +"<h2>");
-		newDiv.append("<p>" + result.response.docs[i].byline.original +"<p>");
+		if(result.response.docs[i].byline != null){
+			newDiv.append("<p>" + result.response.docs[i].byline.original +"<p>");
+		}else{
+			newDiv.append("<p>" + "no author" +"<p>");
+		}
 		newDiv.append("<p>" + result.response.docs[i].section_name +"<p>");
 		newDiv.append("<p>" + result.response.docs[i].pub_date +"<p>");
 		newDiv.append("<p>" + result.response.docs[i].web_url +"<p>");
   		
-		$("#stuff").append(newDiv);
+		$("#resultsList").append(newDiv);
   		}
 
   		
@@ -44,11 +50,11 @@ function search(){
 
 	
 
-	$("#search").on("click",search);
+	$("#searchButton").on("click",search);
 
 	})
-	$("#clear").on("click",function(){
-		$("#stuff").empty();
+	$("#clearButton").on("click",function(){
+		$("#resultsList").empty();
 	})
 
 	
