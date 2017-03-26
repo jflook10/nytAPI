@@ -1,41 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="us-en">
 <head>
+	<meta charset="UTF-8">
 	<title>New York Times Searchy Thing</title>
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Anton|Source+Sans+Pro" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>
 
 <div class="container">
 	<div class="row">
-		<header id="pageTitle" class="jumbotron text-center">THIS IS THE SEARCH YOU'RE LOOKING FOR!
+		<header id="pageTitle" class="jumbotron text-center">New York Times Searchy Thing
 		</header>
 	</div>
 
 	<div class="row">
-		<section id="searchBox" class="panel panel-primary">
-			<div class="panel-heading ourHeadings">Search Area</div>
+
+
+		<section id="searchBox" class="col-md-3 panel ourPanel">
+			<div class="panel-heading ourHeadings"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search Area</div>
 			
 			<div class="panel-body">
-				<h4>SEARCH</h4>
+				<h4>Search Terms:</h4>
 				<input type="text" class="form-control">
-				<h4>NUMBER OF RECORDS TO RETRIEVE</h4>
+				<h4>Number of Records to Retrieve:</h4>
 				<input type="text" class="form-control">
-				<h4>START YEAR</h4>
+				<h4>Start Year:</h4>
 				<input type="text" class="form-control">
-				<h4>END YEAR</h4>
+				<h4>End Year:</h4>
 				<input type="text" class="form-control">
 			
-				<button id="searchButton" class="btn btn-primary display-inline margin-top">SEARCH</button>
-				<button id="clearButton" class="btn btn-primary display-inline">CLEAR RESULTS</button>
+				<button id="searchButton" class="btn btn-primary display-inline margin-top">Search</button>
+				<button id="clearButton" class="btn btn-primary display-inline margin-top">Clear Results</button>
 			
 			</div>
 		</section>
 
-		<section id="topResultsBox" class="panel panel-primary">
-			<div class="panel-heading ourHeadings">TOP RESULTS</div>
+		<section id="topResultsBox" class="col-md-8 col-md-offset-1 panel ourPanel">
+			<div class="panel-heading ourHeadings"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> Top Results</div>
 			
 			<div id="resultsList" class="panel-body">
 				
