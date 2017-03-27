@@ -1,16 +1,20 @@
 $(document).ready(function(){
 
 function search(){
+	var q = $("#searchQ").val();
+	var beginD= $("#beginD").val();
+	var endD= $("#endD").val();
+	var page= $("#pageNum").val();
 
 	var num = 5;
 	
 	var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
 		url += '?' + $.param({
   		'api-key': "02be6ef61f7a487796a0c215f60036d8",
-  		'q': "trump",
-  		'begin_date': "19500101",
-  		'end_date': "19800101",
-  		'page': 0
+  		'q': q,
+  		'begin_date': beginD,
+  		'end_date': endD,
+  		'page': page,
 	});
 
 	$.ajax({
