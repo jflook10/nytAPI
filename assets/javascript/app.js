@@ -1,22 +1,16 @@
 $(document).ready(function(){
 
-	var endYear = "20170101";
-	var startYear = "19500101";
-	var searchTerms = "trump";
-	var numberOfRecords = "1";
-
-
 function search(){
 
-	//var num = 5;
+	var num = 5;
 	
 	var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
 		url += '?' + $.param({
   		'api-key': "02be6ef61f7a487796a0c215f60036d8",
-  		'q': searchTerms,
-  		'begin_date': startYear,
-  		'end_date': endYear,
-  		'page': numberOfRecords
+  		'q': "trump",
+  		'begin_date': "19500101",
+  		'end_date': "19800101",
+  		'page': 0
 	});
 
 	$.ajax({
@@ -56,9 +50,7 @@ function search(){
 
 	
 
-	$("#searchButton").on("click",search);{
-		search();
-	}
+	$("#searchButton").on("click",search);
 
 	})
 	$("#clearButton").on("click",function(){
