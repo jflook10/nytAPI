@@ -22,20 +22,38 @@
 		<section id="searchBox" class="col-md-3 panel ourPanel">
 			<div class="panel-heading ourHeadings"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search Area</div>
 			
-			<div class="panel-body">
-				<h4>Search Terms:</h4>
-				<input type="text" class="form-control" id="searchQ">
-				<h4>Number of Records to Retrieve:</h4>
-				<input type="text" class="form-control" id="pageNum">
-				<h4>Start Year: (Optional)</h4>
-				<input type="text" class="form-control" id="beginD" placeholder="YYYYMMDD">
-				<h4>End Year: (Optional)</h4>
-				<input type="text" class="form-control" id="endD" placeholder="YYYYMMDD">
+			<form role="form">
+				<div class="panel-body">
+					<div class="form-group">
+						<h4>Search Terms:</h4>
+						<input type="text" class="form-control" id="searchQ">
+					</div>
+					
+					<div class="form-group">
+						<h4>Number of Records to Retrieve:</h4>
+						<select class="form-control" id="pageNum">
+							<option value="1">1</option>
+							<option value="5">5</option>
+							<option value="10">10</option>
+							<option value="15">15</option>
+						</select>
+					</div>
+
+					<div class="form-group">
+						<h4>Start Date: (Optional)</h4>
+						<input type="text" class="form-control" id="beginD" placeholder="YYYYMMDD">
+					</div>
+
+					<div class="form-group">
+						<h4>End Date: (Optional)</h4>
+						<input type="text" class="form-control" id="endD" placeholder="YYYYMMDD">
+					</div>
+				
+					<button id="searchButton" class="btn btn-primary display-inline margin-top">Search</button>
+					<button id="clearButton" class="btn btn-primary display-inline margin-top">Clear Results</button>
 			
-				<button id="searchButton" class="btn btn-primary display-inline margin-top">Search</button>
-				<button id="clearButton" class="btn btn-primary display-inline margin-top">Clear Results</button>
-			
-			</div>
+				</div>
+			</form>	
 		</section>
 
 		<section id="topResultsBox" class="col-md-8 col-md-offset-1 panel ourPanel">

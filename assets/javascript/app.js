@@ -1,9 +1,11 @@
 $(document).ready(function(){
 
+var page = "";
 var pNum = 0;
 function search(){
 	
-	console.log(pNum);
+	console.log(page);
+	//console.log(pNum);
 	var endD = "20170101";
 	var beginD = "19000101";
 
@@ -14,7 +16,15 @@ function search(){
 		beginD= $("#endD").val();
 	}
 	var q = $("#searchQ").val();
-	var page= $("#pageNum").val();
+	if (pNum === 0){
+		page= $("#pageNum").val();
+	}
+
+	console.log(q);
+	console.log(page);
+
+
+
 	var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
 		url += '?' + $.param({
   		'api-key': "02be6ef61f7a487796a0c215f60036d8",
@@ -36,11 +46,11 @@ function search(){
 		
 
 		var newDiv = $("<div>");
-		console.log(result);
+		//console.log(result);
 		for(i=0;i < page;i++){
 
 
-		newDiv.append("<h2>" + i + " "+ result.response.docs[i].headline.main +"<h2>");
+		newDiv.append("<h2>" + result.response.docs[i].headline.main +"<h2>");
 		if(result.response.docs[i].byline != null){
 			newDiv.append("<p>" + result.response.docs[i].byline.original +"<p>");
 		}else{
@@ -76,7 +86,10 @@ function search(){
 
 	
 
-	$("#searchButton").on("click",search);
+	$("#searchButton").on("click",function(event){
+		event.preventDefault();
+		search();
+	});
 
 	})
 	$("#clearButton").on("click",function(){
