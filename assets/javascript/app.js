@@ -1,9 +1,9 @@
 $(document).ready(function(){
 
-
+var pNum = 0;
 function search(){
-	$("#resultsList").empty();
-
+	
+	console.log(pNum);
 	var endD = "20170101";
 	var beginD = "19000101";
 
@@ -15,14 +15,15 @@ function search(){
 	}
 	var q = $("#searchQ").val();
 	var page= $("#pageNum").val();
-	
 	var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
 		url += '?' + $.param({
   		'api-key': "02be6ef61f7a487796a0c215f60036d8",
   		'q': q,
   		'begin_date': beginD,
   		'end_date': endD,
-  		'page': 0,
+  		'page': pNum,
+
+  		
 
   		
 
@@ -39,7 +40,7 @@ function search(){
 		for(i=0;i < page;i++){
 
 
-		newDiv.append("<h2>" + result.response.docs[i].headline.main +"<h2>");
+		newDiv.append("<h2>" + i + " "+ result.response.docs[i].headline.main +"<h2>");
 		if(result.response.docs[i].byline != null){
 			newDiv.append("<p>" + result.response.docs[i].byline.original +"<p>");
 		}else{
@@ -50,6 +51,16 @@ function search(){
 		newDiv.append("<p>" + result.response.docs[i].web_url +"<p>");
   		
 		$("#resultsList").append(newDiv);
+		if (i >= 9){
+			break;
+		}
+  		}
+
+  		if (page > 10){
+  			pNum++;
+  			page = page - 10;
+  			console.log(page);
+  			search();
   		}
 
   		
