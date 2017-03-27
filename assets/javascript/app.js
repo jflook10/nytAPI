@@ -1,16 +1,31 @@
 $(document).ready(function(){
 
-function search(){
 
-	var num = 5;
+function search(){
+	$("#resultsList").empty();
+
+	var endD = "20170101";
+	var beginD = "19000101";
+
+	if($("#beginD").val() != ""){
+		beginD= $("#beginD").val();
+	}
+	if($("#endD").val() != ""){
+		beginD= $("#endD").val();
+	}
+	var q = $("#searchQ").val();
+	var page= $("#pageNum").val();
 	
 	var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
 		url += '?' + $.param({
   		'api-key': "02be6ef61f7a487796a0c215f60036d8",
-  		'q': "trump",
-  		'begin_date': "19500101",
-  		'end_date': "19800101",
-  		'page': 0
+  		'q': q,
+  		'begin_date': beginD,
+  		'end_date': endD,
+  		'page': 0,
+
+  		
+
 	});
 
 	$.ajax({
@@ -21,7 +36,7 @@ function search(){
 
 		var newDiv = $("<div>");
 		console.log(result);
-		for(i=0;i<10;i++){
+		for(i=0;i < page;i++){
 
 
 		newDiv.append("<h2>" + result.response.docs[i].headline.main +"<h2>");
